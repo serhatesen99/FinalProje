@@ -30,6 +30,8 @@ public class FinalProjeApplicationTests {
     }
     
     
+ 
+    
     
 
     @Test
@@ -52,6 +54,25 @@ public class FinalProjeApplicationTests {
         assertTrue(urunListesi.contains(urun2));
     }
     
+    
+    
+    
+    @Test
+    public void urunGosterByIdTest() {
+
+        Urun testUrun = new Urun();
+        testUrun.setAd("Test Ürünü");
+        testUrun.setFiyat(50.0);
+        Urun eklenenUrun = urunYonetim.urunEkle(testUrun);
+
+        Long urunId = eklenenUrun.getId();
+
+        Urun getirilenUrun = urunYonetim.urunGosterById(urunId);
+
+        assertNotNull(getirilenUrun);
+        assertEquals(testUrun.getAd(), getirilenUrun.getAd());
+        assertEquals(testUrun.getFiyat(), getirilenUrun.getFiyat());
+    }
     
     
 
