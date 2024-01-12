@@ -1,4 +1,4 @@
-name: Java CI with Maven
+name: CI
 
 on:
   push:
@@ -13,12 +13,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up JDK 17
+    - name: Set up JDK 8 Corretto
       uses: actions/setup-java@v3
       with:
-        java-version: '17'
+        java-version: '8'
         distribution: 'corretto'
         cache: maven
     - name: Build with Maven
       run: mvn -B install --file FinalProje/pom.xml
-
