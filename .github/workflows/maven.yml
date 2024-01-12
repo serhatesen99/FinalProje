@@ -20,5 +20,5 @@ jobs:
         distribution: 'corretto'
         cache: maven
     - name: Build with Maven
-      run: mvn -B package --file FinalProje/pom.xml
+      run: mvn -B install --file FinalProje/pom.xml
 
