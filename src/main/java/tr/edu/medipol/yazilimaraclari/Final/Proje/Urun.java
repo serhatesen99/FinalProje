@@ -10,7 +10,6 @@ public class Urun {
     private Date skt;
 
     
-    
     public Long getId() {
         return id;
     }
@@ -19,8 +18,6 @@ public class Urun {
         this.id = id;
     }
 
-    
-    
     
     public String getAd() {
         return ad;
@@ -32,7 +29,6 @@ public class Urun {
 
     
     
-    
     public double getFiyat() {
         return fiyat;
     }
@@ -40,10 +36,6 @@ public class Urun {
     public void setFiyat(double fiyat) {
         this.fiyat = fiyat;
     }
-
-    
-    
-    
     
     public Date getSkt() {
         return skt;
@@ -51,10 +43,7 @@ public class Urun {
 
     public void setSkt(Date skt) {
         this.skt = skt;
-    }
-    
-    
-    
+    }  
 }
 
 
