@@ -11,7 +11,7 @@ public class Urun {
 
     
     
-    
+        
     
     
     public Long getId() {
