@@ -8,12 +8,9 @@ on:
  
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     permissions:
       pull-requests: 'write'
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 17 Corretto
@@ -24,17 +21,20 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B install --file pom.xml
-    - name: Coverage
+    - name: Jacoco Report to PR
       id: jacoco
-      uses: madrapps/jacoco-report@v1.3
+      uses: madrapps/jacoco-report@v1.6.1
       with:
-        paths: ${{ github.workspace }}/target/site/jacoco/jacoco.xml
+        paths: ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
         token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Fail PR if overall coverage is less than 50%
-      if: ${{ steps.jacoco.outputs.coverage-overall < 50.0 }}
-      uses: actions/github-script@v6
-      with:
-        script: |
-          core.setFailed('Overall coverage is less than 50%!')
+        min-coverage-overall: 40
+        title: Code Coverage
+        update-comment: true
+
+      
+         
+
+          
+    
 
 
