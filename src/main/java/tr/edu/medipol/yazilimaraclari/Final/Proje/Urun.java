@@ -11,9 +11,6 @@ public class Urun {
 
     
     
-    
-    
-    
     public Long getId() {
         return id;
     }
@@ -25,9 +22,6 @@ public class Urun {
     
     
     
-    
-    
-    
     public String getAd() {
         return ad;
     }
@@ -36,8 +30,6 @@ public class Urun {
         this.ad = ad;
     }
 
-  
-    
     
     
     
@@ -49,8 +41,6 @@ public class Urun {
         this.fiyat = fiyat;
     }
 
-    
-    
     
     
     

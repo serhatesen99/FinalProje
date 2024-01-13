@@ -41,5 +41,4 @@ public class UrunYonetim {
         urunListesi.removeIf(urun -> Objects.equals(urun.getId(), id));
     }
 
-
     }
