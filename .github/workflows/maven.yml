@@ -8,12 +8,9 @@ on:
  
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     permissions:
       pull-requests: 'write'
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 17 Corretto
@@ -24,5 +21,16 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B install --file pom.xml
+    - name: Jacoco Report to PR
+      id: jacoco
+      uses: madrapps/jacoco-report@v1.6.1
+      with:
+        paths: ${{ github.workspace }}/target/site/jacoco/jacoco.xml
+        token: ${{ secrets.GITHUB_TOKEN }}
+        min-coverage-overall: 40
+        title: Code Coverage
+        update-comment: true
+
+
 
 
